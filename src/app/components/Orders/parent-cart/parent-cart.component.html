@@ -4,7 +4,7 @@
             <h4>Categories</h4>
             <div class="form-group">
                 <select class="form-control" name="catList" id="cat" [(ngModel)]="catId">
-                    <option *ngFor="let item of Category" [value]="item.ID">{{item.Name}}</option>
+                    <option *ngFor="let item of a">{{item.Name}}</option>
                 </select>
                 <br>
                 <div class="alert alert-dismissible alert-danger col-4">

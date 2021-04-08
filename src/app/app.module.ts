@@ -1,3 +1,4 @@
+import { ApiProductsComponent } from './components/api-products/allproducts/api-products.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -13,8 +14,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ApiProductsComponent } from './components/api-products/api-products.component';
 import { ProdApiComponent } from './components/api-products/prod-api/prod-api.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddprodComponent } from './components/addprod/addprod.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +33,10 @@ import { ProdApiComponent } from './components/api-products/prod-api/prod-api.co
     PageNotFoundComponent,
     ApiProductsComponent,
     ProdApiComponent,
+    UserLoginComponent,
+    AddprodComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ICategory } from '../models/icategory';
+import { ICategory2 } from '../models/icategory';
 import { IProduct } from '../models/iproduct';
 import { Store } from '../models/store';
+import { JsonServService } from './json-serv.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProdServService {
   private prodList: IProduct[];
-  private category: ICategory[];
+  private category;
   private store: Store;
-  constructor() {
+  constructor(private jsonserv:JsonServService) {
     this.prodList = [
       {
         ID: 1,
@@ -91,20 +92,21 @@ export class ProdServService {
         CateogryID: 3,
       },
     ];
-    this.category = [
-      {
-        ID: 1,
-        Name: 'iphone',
-      },
-      {
-        ID: 2,
-        Name: 'macbook',
-      },
-      {
-        ID: 3,
-        Name: 'applewatch',
-      },
-    ];
+    
+    // this.category = [
+    //   {
+    //     ID: 1,
+    //     Name: 'iphone',
+    //   },
+    //   {
+    //     ID: 2,
+    //     Name: 'macbook',
+    //   },
+    //   {
+    //     ID: 3,
+    //     Name: 'applewatch',
+    //   },
+    // ];
     this.store = new Store(
       'Marketnaa',
       ['EG', 'USA', 'UAE'],
@@ -114,7 +116,16 @@ export class ProdServService {
   getAllprd(): IProduct[] {
     return this.prodList;
   }
-  getAllCat(): ICategory[] {
+  getAllCat(): ICategory2[]{
+    
+    this.jsonserv.getAllCat().subscribe(
+    (d)=>{this.category=d
+      console.log(this.category);
+    },
+    (e)=>{console.log(e);
+    }
+    ,()=>{console.log("completed");
+    })
     return this.category;
   }
   getStore() {

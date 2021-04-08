@@ -29,8 +29,8 @@ export class ChildCartComponent implements OnInit, OnChanges {
     this.totprice = new EventEmitter<number>();
   }
   ngOnChanges(): void {
-    console.log(this.catId);
-    this.prodList = this.prdServ.getAllprd();
+    //console.log(this.catId);
+    //this.prodList = this.prdServ.getAllprd();
   }
 
   ngOnInit(): void {}
